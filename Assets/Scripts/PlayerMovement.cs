@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //public Gameobject[] targets;
+    [SerializeField]
+    public int speed;
+    public static List<GameObject> targets = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-        
+        //targets.Add(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //this.Gameobject.Vector2.MoveTowards(transform.position,targets[0].transform.position, 10);
+        if (targets.Count > 0){
+            if (targets[0] != null){
+                gameObject.transform.position = Vector2.MoveTowards(transform.position,targets[0].transform.position, speed * Time.deltaTime);
+        }
+        }
     }
 }
