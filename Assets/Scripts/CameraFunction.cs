@@ -18,7 +18,6 @@ public class CameraFunction : MonoBehaviour
             cam.orthographicSize -= Input.mouseScrollDelta.y;
         }
         if(Input.GetMouseButton(2)){
-            Debug.Log("f");
         }
     }
 }
