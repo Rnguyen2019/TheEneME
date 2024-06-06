@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 1000
   playerDamage: 10
+  cooldown: 0.2
 --- !u!61 &4277059220710710929
 BoxCollider2D:
   m_ObjectHideFlags: 0

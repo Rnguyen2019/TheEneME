@@ -14,11 +14,11 @@ public class CameraFunction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cam.orthographicSize >= 20f){
-            //cam.orthographicSize = 19f;
-        }
-        if(cam.orthographicSize - Input.mouseScrollDelta.y <= 20f){
+        if(cam.orthographicSize - Input.mouseScrollDelta.y <= 20f && cam.orthographicSize - Input.mouseScrollDelta.y >= 5f){
             cam.orthographicSize -= Input.mouseScrollDelta.y;
+        }
+        if(Input.GetMouseButton(2)){
+            Debug.Log("f");
         }
     }
 }
