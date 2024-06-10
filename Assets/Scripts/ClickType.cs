@@ -19,18 +19,8 @@ public class ClickType : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetMouseButtonDown(0)){
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit)){
-                if (hit.Equals("BlueGuy")){
-                    Debug.Log("hi");
-                }
-            }
-        } */
-
         //Check if the left Mouse button is clicked
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetMouseButtonDown(0))
         {
             //Set up the new Pointer Event
             PointerEventData pointerData = new PointerEventData(EventSystem.current);
@@ -43,7 +33,40 @@ public class ClickType : MonoBehaviour
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             foreach (RaycastResult result in results)
             {
-                Debug.Log("Hit " + result.gameObject.name);
+                GameObject.Find("BlueGuy").GetComponent<Outline>().effectColor = Color.black;
+                GameObject.Find("YellowGuy").GetComponent<Outline>().effectColor = Color.black;
+                GameObject.Find("WhiteGuy").GetComponent<Outline>().effectColor = Color.black;
+
+                if(result.gameObject.name.Equals("BlueGuy")){
+                    if( clicktype != 1){
+                        result.gameObject.GetComponent<Outline>().effectColor = Color.yellow;
+                        clicktype = 1;
+                    }
+                    else{
+                        result.gameObject.GetComponent<Outline>().effectColor = Color.black;
+                        clicktype = 0;
+                    }
+                }
+                if(result.gameObject.name.Equals("YellowGuy")){
+                    if( clicktype != 2){
+                        result.gameObject.GetComponent<Outline>().effectColor = Color.yellow;
+                        clicktype = 2;
+                    }
+                    else{
+                        result.gameObject.GetComponent<Outline>().effectColor = Color.black;
+                        clicktype = 0;
+                    }
+                }
+                if(result.gameObject.name.Equals("WhiteGuy")){
+                    if( clicktype != 3){
+                        result.gameObject.GetComponent<Outline>().effectColor = Color.yellow;
+                        clicktype = 3;
+                    }
+                    else{
+                        result.gameObject.GetComponent<Outline>().effectColor = Color.black;
+                        clicktype = 0;
+                    }
+                }
             }
         }
     }

@@ -40,6 +40,13 @@ public class PlayerDamage : MonoBehaviour
                 timer = 0;
             }
         }
+        if (other.gameObject.GetComponent<MineDamage>() != null){
+            timer += Time.deltaTime;
+            if (timer >= cooldown){
+                other.gameObject.GetComponent<MineDamage>().damaged(playerDamage);
+                timer = 0;
+            }
+        }
     }
 
     public void OnDrawGizmos(){

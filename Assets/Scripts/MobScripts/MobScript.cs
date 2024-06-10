@@ -14,6 +14,8 @@ public class MobScript : MonoBehaviour
 
     public float cooldown;
     private float timer = 0;
+
+    public int cost;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,14 @@ public class MobScript : MonoBehaviour
 
     void Awake(){
         target = GameObject.Find("Player").transform;
-        PlayerMovement.targets.Add(gameObject);
+        if (PlayerMovement.targets[0] != null){
+            if(PlayerMovement.targets[0].gameObject.GetComponent<MineDamage>() != null){
+                PlayerMovement.targets.Insert(0,gameObject);
+            }
+        }
+        else{
+            PlayerMovement.targets.Add(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -43,10 +52,12 @@ public class MobScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        timer += Time.deltaTime;
-        if (timer >= cooldown){
-            other.gameObject.GetComponent<PlayerDamage>().damaged(enemyDamage);
-            timer = 0;
+        if (other.gameObject.GetComponent<PlayerDamage>() != null){
+            timer += Time.deltaTime;
+            if (timer >= cooldown){
+                other.gameObject.GetComponent<PlayerDamage>().damaged(enemyDamage);
+                timer = 0;
+            }
         }
     }
 

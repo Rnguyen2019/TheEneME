@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 208376225769718358}
   - component: {fileID: 5521851654877407421}
   - component: {fileID: 5135115133108370747}
+  - component: {fileID: -219958641553588376}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -183,6 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd9e04aaac0646c48bf58eee90199ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mineHealthBars:
+  - {fileID: 0}
+  mines: {fileID: 0}
 --- !u!61 &5135115133108370747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -228,6 +232,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 0.65}
   m_EdgeRadius: 0
+--- !u!114 &-219958641553588376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539003839419007441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73530f726eab4925b3b0f3e29878b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mineHealth: 500
 --- !u!1 &8305667748687435937
 GameObject:
   m_ObjectHideFlags: 0

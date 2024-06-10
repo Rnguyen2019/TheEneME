@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CoinCreate : MonoBehaviour
 {
     public Text coins;
-    public static int coinageCount = 0;
+    public static int coinageCount = 50;
     public static int captured = 0;
 
     public float cooldown;

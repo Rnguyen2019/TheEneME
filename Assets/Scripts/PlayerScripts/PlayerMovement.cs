@@ -20,6 +20,6 @@ public class PlayerMovement : MonoBehaviour
             if (targets[0] != null){
                 gameObject.transform.position = Vector2.MoveTowards(transform.position,targets[0].transform.position, speed * Time.deltaTime);
         }
-        }
+            }
     }
 }
