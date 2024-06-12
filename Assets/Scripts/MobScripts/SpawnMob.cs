@@ -25,7 +25,7 @@ public class SpawnMob : MonoBehaviour
         if(ClickType.clicktype != 0){
             cost = mob[ClickType.clicktype - 1].gameObject.GetComponent<MobScript>().cost;
         }
-        if (Input.GetMouseButton(1) && timer >= cooldown && CoinCreate.coinageCount >= cost && ClickType.clicktype != 0){
+        if (Input.GetMouseButton(0) && timer >= cooldown && CoinCreate.coinageCount >= cost && ClickType.clicktype != 0 && !ClickType.clickUi){
             var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0f;
             Instantiate(mob[ClickType.clicktype - 1], mouseWorldPos, new Quaternion(0,0,0,0), mobParent);

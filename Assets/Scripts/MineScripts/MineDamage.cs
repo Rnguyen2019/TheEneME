@@ -6,6 +6,9 @@ using UnityEngine;
 public class MineDamage : MonoBehaviour
 {
     public int mineHealth;
+
+    public float cooldown;
+    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +18,11 @@ public class MineDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer >= cooldown && gameObject.GetComponent<CaptureMine>().captured){
+            damaged(1);
+            timer = 0;
+        }
     }
 
     public void damaged(int damage){

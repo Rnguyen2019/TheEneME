@@ -24,14 +24,18 @@ public class MobScript : MonoBehaviour
 
     void Awake(){
         target = GameObject.Find("Player").transform;
-        if (PlayerMovement.targets[0] != null){
+        /*if (PlayerMovement.targets[0] != null){
             if(PlayerMovement.targets[0].gameObject.GetComponent<MineDamage>() != null){
                 PlayerMovement.targets.Insert(0,gameObject);
             }
+            else{
+                PlayerMovement.targets.Add(gameObject);
+            }
         }
-        else{
+        if (PlayerMovement.targets[0] == null){
             PlayerMovement.targets.Add(gameObject);
-        }
+        }*/
+        PlayerMovement.targets.Insert(0,gameObject);
     }
 
     // Update is called once per frame

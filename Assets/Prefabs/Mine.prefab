@@ -184,9 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd9e04aaac0646c48bf58eee90199ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineHealthBars:
-  - {fileID: 0}
-  mines: {fileID: 0}
 --- !u!61 &5135115133108370747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mineHealth: 500
+  cooldown: 2
 --- !u!1 &8305667748687435937
 GameObject:
   m_ObjectHideFlags: 0

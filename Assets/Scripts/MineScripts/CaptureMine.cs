@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CaptureMine : MonoBehaviour
 {
-    private bool captured = false;
+    public bool captured = false;
     // Start is called before the first frame update
     void Start()
     {

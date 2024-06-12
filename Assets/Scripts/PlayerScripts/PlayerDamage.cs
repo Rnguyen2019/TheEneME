@@ -33,7 +33,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<MobScript>() != null){
+        if (other.gameObject.GetComponent<MobScript>() != null && other.gameObject == PlayerMovement.targets[0]){
             timer += Time.deltaTime;
             if (timer >= cooldown){
                 other.gameObject.GetComponent<MobScript>().damaged(playerDamage);

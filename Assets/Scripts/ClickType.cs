@@ -8,6 +8,8 @@ public class ClickType : MonoBehaviour
 {
     //Camera cam;
     public static int clicktype = 0; 
+
+    public static bool clickUi = false;
     GraphicRaycaster raycaster;
     // Start is called before the first frame update
     void Start()
@@ -30,9 +32,19 @@ public class ClickType : MonoBehaviour
             pointerData.position = Input.mousePosition;
             this.raycaster.Raycast(pointerData, results);
 
+            if (results.Count > 0){
+                if (results[0].gameObject != null){
+                clickUi = true;
+                }
+            }
+            else{
+                clickUi = false;
+                }
+
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             foreach (RaycastResult result in results)
             {
+
                 GameObject.Find("BlueGuy").GetComponent<Outline>().effectColor = Color.black;
                 GameObject.Find("YellowGuy").GetComponent<Outline>().effectColor = Color.black;
                 GameObject.Find("WhiteGuy").GetComponent<Outline>().effectColor = Color.black;
