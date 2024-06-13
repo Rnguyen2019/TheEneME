@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (targets.Count > 0){
             if (targets[0] != null){
-                gameObject.transform.position = Vector2.MoveTowards(transform.position,targets[0].transform.position, speed * Time.deltaTime);
-        }
+                gameObject.transform.position = Vector2.MoveTowards(transform.position,targets[0].transform.position, speed * Time.deltaTime * (PlayerDamage.kills / 10 + 1));
             }
+        }
     }
 }

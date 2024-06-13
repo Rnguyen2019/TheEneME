@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CaptureMine : MonoBehaviour
 {
     public bool captured = false;
+    public static bool mouseDown = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +23,17 @@ public class CaptureMine : MonoBehaviour
     }
 
     void OnMouseDown(){
-        if(ClickType.clicktype == 0){
+        mouseDown = true;
+        if(ClickType.clicktype == 0 || 1 == 1){
             transform.Find("Flag").gameObject.SetActive(true);
             if(!captured){
                 CoinCreate.captured++;
                 captured = true;
             }
         }
+    }
+
+    void OnMouseUp(){
+        mouseDown = false;
     }
 }

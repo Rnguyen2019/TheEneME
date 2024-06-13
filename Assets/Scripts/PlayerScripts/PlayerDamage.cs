@@ -11,6 +11,7 @@ public class PlayerDamage : MonoBehaviour
     public float cooldown;
     private float timer = 0;
 
+    public static int kills = 0;
     // Start is called before the first frame update
     void Start()
     {

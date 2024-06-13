@@ -24,7 +24,7 @@ public class MobScript : MonoBehaviour
 
     void Awake(){
         target = GameObject.Find("Player").transform;
-        /*if (PlayerMovement.targets[0] != null){
+        if (PlayerMovement.targets.Count > 0){
             if(PlayerMovement.targets[0].gameObject.GetComponent<MineDamage>() != null){
                 PlayerMovement.targets.Insert(0,gameObject);
             }
@@ -32,10 +32,10 @@ public class MobScript : MonoBehaviour
                 PlayerMovement.targets.Add(gameObject);
             }
         }
-        if (PlayerMovement.targets[0] == null){
+        else{
             PlayerMovement.targets.Add(gameObject);
-        }*/
-        PlayerMovement.targets.Insert(0,gameObject);
+        }
+        //PlayerMovement.targets.Insert(0,gameObject);
     }
 
     // Update is called once per frame
@@ -51,6 +51,7 @@ public class MobScript : MonoBehaviour
         if (enemyHealth <= 0){
             Destroy(this.transform.gameObject);
             PlayerMovement.targets.RemoveAt(0);
+            PlayerDamage.kills++;
         }
     }
 
